@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IGCSE Subjects</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #050505;
+      --panel: #6e6e6e;
+      --panel-2: #545454;
+      --panel-3: #2b2b2b;
+      --panel-4: #181818;
+      --stroke: rgba(255, 255, 255, 0.08);
+      --stroke-strong: rgba(255, 255, 255, 0.16);
+      --text: #f5f7fb;
+      --muted: rgba(255, 255, 255, 0.72);
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --sidebar-width: 270px;
+      --navbar-height: 74px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .topbar {
+      background: #555252;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: var(--navbar-height);
+      z-index: 1040;
+    }
+
+    .navbar {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: #fff !important;
+      font-weight: 800;
+      font-size: 1.7rem;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 34px;
+      position: relative;
+    }
+
+    .brand-circle::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.82);
+      border-radius: 50%;
+      display: block;
+    }
+
+    .brand-circle::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.92);
+      right: 4px;
+      bottom: 6px;
+      transform: rotate(45deg);
+      border-radius: 999px;
+    }
+
+    .nav-link-top {
+      color: rgba(255, 255, 255, 0.92) !important;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.6rem 0.9rem !important;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    .nav-link-top:hover,
+    .nav-link-top:focus,
+    .nav-link-top.active {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff !important;
+    }
+
+    .dropdown-menu {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .auth-btn {
+      min-width: 96px;
+      height: 40px;
+      border-radius: 999px;
+      background: #242424;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+      transition: 0.2s ease;
+    }
+
+    .auth-btn:hover {
+      background: #111;
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .shell {
+      min-height: calc(100vh - var(--navbar-height));
+    }
+
+    .desktop-sidebar {
+      width: var(--sidebar-width);
+      background: linear-gradient(180deg, #8a8a8a 0%, #7a7a7a 100%);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 0.75rem;
+      position: sticky;
+      top: var(--navbar-height);
+      height: calc(100vh - var(--navbar-height));
+      overflow-y: auto;
+      box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .sidebar-head {
+      background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 0.8rem 0.85rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .sidebar-title {
+      font-size: 1.85rem;
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.35rem;
+    }
+
+    .sidebar-subtitle {
+      margin: 0;
+      font-size: 0.66rem;
+      color: rgba(255,255,255,0.86);
+      font-weight: 500;
+    }
+
+    .sidebar-group-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin: 1rem 0 0.65rem;
+      color: #fff;
+    }
+
+    .sidebar-tabs .nav-link,
+    .offcanvas-body .nav-link {
+      width: 100%;
+      border: 0;
+      border-radius: 999px;
+      background: #5a5a5a;
+      color: #fff;
+      text-align: left;
+      padding: 0.72rem 1rem;
+      margin-bottom: 0.55rem;
+      font-size: 0.96rem;
+      font-weight: 700;
+      line-height: 1.15;
+      transition: 0.18s ease;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .sidebar-tabs .nav-link:hover,
+    .sidebar-tabs .nav-link.active,
+    .offcanvas-body .nav-link:hover,
+    .offcanvas-body .nav-link.active {
+      background: #474747;
+      color: #fff;
+      transform: translateX(2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .content-zone {
+      flex: 1;
+      min-width: 0;
+      background:
+        linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.88))
+    }
+
+    .content-zone::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.09) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.08;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.25));
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.25));
+      pointer-events: none;
+    }
+
+    .content-zone::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top center, rgba(255,255,255,0.08), transparent 38%),
+        radial-gradient(circle at bottom left, rgba(255,255,255,0.04), transparent 32%);
+      pointer-events: none;
+    }
+
+    .content-scroll {
+      position: relative;
+      z-index: 1;
+      padding: 1rem 1rem 2rem;
+      min-height: calc(100vh - var(--navbar-height));
+    }
+
+    .page-card {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .subject-pane {
+      animation: paneFade 0.35s ease;
+    }
+
+    @keyframes paneFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .subject-title {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      font-weight: 700;
+      margin: 0 0 0.9rem;
+    }
+
+    .hero-wrap {
+      max-width: 760px;
+      margin: 0 auto 1.15rem;
+    }
+
+    .subject-carousel {
+      position: relative;
+    }
+
+    .subject-carousel .carousel-inner {
+      overflow: visible;
+      padding: 0 1rem;
+    }
+
+    .subject-carousel .carousel-item {
+      height: 300px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: var(--shadow);
+    }
+
+    .subject-carousel .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .subject-carousel .carousel-control-prev,
+    .subject-carousel .carousel-control-next {
+      width: 74px;
+      opacity: 1;
+    }
+
+    .subject-carousel .carousel-control-prev {
+      justify-content: flex-start;
+      left: -0.4rem;
+    }
+
+    .subject-carousel .carousel-control-next {
+      justify-content: flex-end;
+      right: -0.4rem;
+    }
+
+    .subject-carousel .carousel-control-prev-icon,
+    .subject-carousel .carousel-control-next-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      background-color: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(4px);
+      background-size: 1.35rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
+    }
+
+    .subject-carousel .carousel-indicators {
+      position: static;
+      margin: 0.8rem 0 0;
+      gap: 0.5rem;
+    }
+
+    .subject-carousel .carousel-indicators [data-bs-target] {
+      width: 34px;
+      height: 5px;
+      border: 0;
+      margin: 0;
+      border-radius: 999px;
+      background-color: rgba(255,255,255,0.45);
+      opacity: 1;
+    }
+
+    .subject-carousel .carousel-indicators .active {
+      background-color: rgba(255,255,255,0.95);
+    }
+
+    .topics-heading {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1;
+      font-weight: 700;
+      margin: 0.35rem 0 1.5rem;
+      letter-spacing: -0.05em;
+    }
+
+    .topic-card {
+      height: 100%;
+      background: linear-gradient(180deg, rgba(122,122,122,0.92), rgba(98,98,98,0.92));
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 26px 26px 30px 30px;
+      padding: 1rem 0.95rem 1.05rem;
+      text-align: center;
+      box-shadow: 0 16px 34px rgba(0,0,0,0.24);
+    }
+
+    .topic-card h5 {
+      margin-bottom: 0.7rem;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .topic-card p {
+      margin: 0;
+      font-size: 0.74rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .mobile-sidebar-btn {
+      width: 48px;
+      height: 48px;
+      border: 0;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.55rem;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+    }
+
+    .mobile-sidebar-btn:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .navbar-toggler {
+      border: 0;
+      padding: 0.2rem 0.4rem;
+      box-shadow: none !important;
+    }
+
+    .offcanvas {
+      background: linear-gradient(180deg, #8a8a8a 0%, #777 100%);
+      color: #fff;
+      width: min(290px, 84vw) !important;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .offcanvas-header {
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .offcanvas .btn-close {
+      filter: invert(1);
+      opacity: 0.9;
+    }
+
+    .auth-modal-content {
+      background: linear-gradient(180deg, #5b5757 0%, #494545 100%);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+    }
+
+    .auth-pills {
+      gap: 0.75rem;
+    }
+
+    .auth-pills .nav-link {
+      min-width: 118px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.86);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-weight: 700;
+      padding: 0.7rem 1.1rem;
+    }
+
+    .auth-pills .nav-link.active,
+    .auth-pills .nav-link:hover {
+      background: #202020;
+      color: #fff;
+      border-color: rgba(255,255,255,0.06);
+    }
+
+    .auth-modal-content .form-label,
+    .auth-modal-content h5,
+    .auth-modal-content h4 {
+      color: #fff;
+    }
+
+    .auth-input-group .input-group-text,
+    .auth-control,
+    .auth-input-group .form-control {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.09);
+      color: #fff;
+      min-height: 50px;
+    }
+
+    .auth-input-group .input-group-text {
+      border-radius: 14px 0 0 14px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .auth-input-group .form-control {
+      border-radius: 0 14px 14px 0;
+    }
+
+    .auth-control {
+      border-radius: 14px;
+    }
+
+    .auth-input-group .form-control::placeholder,
+    .auth-control::placeholder {
+      color: rgba(255,255,255,0.62);
+    }
+
+    .auth-input-group .form-control:focus,
+    .auth-control:focus {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.18);
+      color: #fff;
+      box-shadow: none;
+    }
+
+    .auth-submit-btn {
+      min-height: 48px;
+      background: #151515;
+      color: #fff;
+      font-weight: 800;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .auth-submit-btn:hover {
+      background: #090909;
+      color: #fff;
+    }
+
+    .about-strip {
+      background: linear-gradient(180deg, #111, #0a0a0a);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .about-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 1.4rem;
+      height: 100%;
+    }
+
+    .about-card p,
+    .about-card li {
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1199.98px) {
+      :root {
+        --sidebar-width: 235px;
+      }
+
+      .topic-card p {
+        font-size: 0.72rem;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .desktop-sidebar {
+        display: none;
+      }
+
+      .mobile-sidebar-btn {
+        display: inline-flex;
+      }
+
+      .navbar-collapse {
+        padding-top: 0.8rem;
+      }
+
+      .nav-link-top {
+        border-radius: 12px;
+      }
+
+      .content-scroll {
+        padding: 1rem 0.85rem 1.8rem;
+      }
+
+      .subject-carousel .carousel-item {
+        height: 270px;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      :root {
+        --navbar-height: 68px;
+      }
+
+      .brand {
+        font-size: 1.35rem;
+      }
+
+      .brand-circle {
+        width: 30px;
+        height: 30px;
+        flex-basis: 30px;
+      }
+
+      .brand-circle::before {
+        width: 15px;
+        height: 15px;
+      }
+
+      .subject-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .hero-wrap {
+        max-width: 100%;
+        margin-bottom: 0.9rem;
+      }
+
+      .subject-carousel .carousel-inner {
+        padding: 0 0.35rem;
+      }
+
+      .subject-carousel .carousel-item {
+        height: 188px;
+        border-radius: 22px;
+      }
+
+      .subject-carousel .carousel-control-prev,
+      .subject-carousel .carousel-control-next {
+        width: 48px;
+      }
+
+      .subject-carousel .carousel-control-prev {
+        left: -0.25rem;
+      }
+
+      .subject-carousel .carousel-control-next {
+        right: -0.25rem;
+      }
+
+      .subject-carousel .carousel-control-prev-icon,
+      .subject-carousel .carousel-control-next-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 14px;
+        background-size: 1rem;
+      }
+
+      .subject-carousel .carousel-indicators [data-bs-target] {
+        width: 28px;
+        height: 4px;
+      }
+
+      .topics-heading {
+        font-size: 2rem;
+        margin-bottom: 1.1rem;
+      }
+
+      .topic-card {
+        border-radius: 22px 22px 28px 28px;
+        padding: 0.95rem 0.85rem 1rem;
+      }
+
+      .topic-card h5 {
+        font-size: 0.94rem;
+      }
+
+      .topic-card p {
+        font-size: 0.69rem;
+        line-height: 1.48;
+      }
+
+      .auth-actions {
+        margin-top: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid px-3 px-lg-4">
+        <a class="navbar-brand brand me-3" href="#home">
+          <span class="brand-circle"></span>
+          <span>Tech</span>
+        </a>
+
+        <button
+          class="mobile-sidebar-btn me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#subjectsSidebar"
+          aria-controls="subjectsSidebar"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav me-auto ms-lg-3 gap-lg-2">
+            <li class="nav-item"><a class="nav-link nav-link-top active" href="#home"><i class="bi bi-house-door-fill"></i> Home</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-top" href="#about"><i class="bi bi-people"></i> About</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link nav-link-top dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-gear-fill"></i> Services</a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#">Educational Tech Products</a></li>
+                <li><a class="dropdown-item" href="#">Virtual Learning Tools</a></li>
+                <li><a class="dropdown-item" href="#">IGCSE Support Packs</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="auth-actions d-flex flex-wrap gap-2 pt-2 pt-lg-0">
+            <a href="#" class="auth-btn" data-bs-toggle="modal" data-bs-target="#authModal">Login</a>
+            <a href="#" class="auth-btn" data-bs-toggle="modal" data-bs-target="#authModal">Register</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="shell d-flex" id="home">
+    <aside class="desktop-sidebar">
+      <div class="sidebar-head">
+        <div class="sidebar-title">IGCSE Subjects</div>
+        <p class="sidebar-subtitle">Educational Tech Products</p>
+      </div>
+
+      <div class="nav flex-column nav-pills sidebar-tabs" id="desktop-subject-tabs" role="tablist" aria-orientation="vertical">
+        <div class="sidebar-group-title">Core Subjects</div>
+        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#english-pane" type="button" role="tab">English</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#math-pane" type="button" role="tab">Mathematics</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#science-pane" type="button" role="tab">Science</button>
+
+        <div class="sidebar-group-title">Elective Subjects</div>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#business-pane" type="button" role="tab">Business Studies</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#economics-pane" type="button" role="tab">Economics</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#accounting-pane" type="button" role="tab">Accounting</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#ict-pane" type="button" role="tab">ICT</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#cs-pane" type="button" role="tab">Computer Science</button>
+      </div>
+    </aside>
+
+    <section class="content-zone">
+      <div class="content-scroll">
+        <div class="tab-content page-card" id="subject-content">
+
+          <div class="tab-pane fade show active subject-pane" id="english-pane" role="tabpanel" tabindex="0">
+            <h1 class="subject-title">English</h1>
+            <div class="hero-wrap">
+              <div id="englishCarousel" class="carousel slide subject-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active"><img src="./img/english/photo_1_2026-04-01_22-37-11.jpg" alt="English books" /></div>
+                  <div class="carousel-item"><img src="./img/english/photo_2_2026-04-01_22-37-11.jpg" alt="English classroom" /></div>
+                  <div class="carousel-item"><img src="./img/english/photo_3_2026-04-01_22-37-11.jpg" alt="English learning" /></div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#englishCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#englishCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#englishCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                  <button type="button" data-bs-target="#englishCarousel" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#englishCarousel" data-bs-slide-to="2"></button>
+                </div>
+              </div>
+            </div>
+            <h2 class="topics-heading">3 Topics</h2>
+            <div class="row g-3 g-md-4 justify-content-center">
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Reading Skills</h5><p>Students develop close reading, inference, and comprehension through prose, poetry, and nonfiction. They learn to identify main ideas, analyse language choices, and respond thoughtfully to different kinds of texts.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Writing Techniques</h5><p>English writing focuses on structure, grammar, punctuation, and vocabulary. Learners practise descriptive, narrative, and argumentative writing so they can communicate clearly for academic and real-life situations.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Speaking &amp; Listening</h5><p>This area builds confidence in presentation, discussion, and spoken communication. Students learn to express ideas fluently, listen actively, and adjust tone and language for different audiences.</p></div></div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade subject-pane" id="math-pane" role="tabpanel" tabindex="0">
+            <h1 class="subject-title">Mathematics</h1>
+            <div class="hero-wrap">
+              <div id="mathCarousel" class="carousel slide subject-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active"><img src="./img/math/photo_1_2026-04-01_22-41-55.jpg" alt="Math notes" /></div>
+                  <div class="carousel-item"><img src="./img/math/photo_2_2026-04-01_22-41-55.jpg" alt="Geometry" /></div>
+                  <div class="carousel-item"><img src="./img/math/photo_3_2026-04-01_22-41-55.jpg" alt="Math study table" /></div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#mathCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#mathCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#mathCarousel" data-bs-slide-to="0" class="active"></button>
+                  <button type="button" data-bs-target="#mathCarousel" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#mathCarousel" data-bs-slide-to="2"></button>
+                </div>
+              </div>
+            </div>
+            <h2 class="topics-heading">3 Topics</h2>
+            <div class="row g-3 g-md-4 justify-content-center">
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Algebra</h5><p>Algebra introduces expressions, equations, graphs, and functions. Students learn to solve problems systematically, recognise patterns, and apply symbolic methods with confidence and accuracy.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Geometry &amp; Measure</h5><p>This topic includes angles, shapes, area, volume, transformations, and mensuration. Learners strengthen spatial reasoning and apply formulas in both abstract questions and real-world contexts.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Statistics &amp; Probability</h5><p>Students interpret data, calculate averages, and evaluate chance using charts, tables, and probability models. The topic supports logical thinking and evidence-based decision-making.</p></div></div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade subject-pane" id="science-pane" role="tabpanel" tabindex="0">
+            <h1 class="subject-title">Science</h1>
+            <div class="hero-wrap">
+              <div id="scienceCarousel" class="carousel slide subject-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active"><img src="./img/science/photo_1_2026-04-01_22-42-11.jpg" alt="Science lab" /></div>
+                  <div class="carousel-item"><img src="./img/science/photo_2_2026-04-01_22-42-11.jpg" alt="Science research" /></div>
+                  <div class="carousel-item"><img src="./img/science/photo_3_2026-04-01_22-42-11.jpg" alt="Microscope" /></div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#scienceCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#scienceCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#scienceCarousel" data-bs-slide-to="0" class="active"></button>
+                  <button type="button" data-bs-target="#scienceCarousel" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#scienceCarousel" data-bs-slide-to="2"></button>
+                </div>
+              </div>
+            </div>
+            <h2 class="topics-heading">3 Topics</h2>
+            <div class="row g-3 g-md-4 justify-content-center">
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Biology</h5><p>Biology explores living organisms, cells, ecosystems, and body systems. Students study how life works and how organisms interact with one another and their environment.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Chemistry</h5><p>This topic focuses on matter, atoms, bonding, reactions, and calculations. Learners investigate substances and changes through explanation, observation, and experimental evidence.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Physics</h5><p>Physics introduces forces, motion, energy, electricity, waves, and space. Students learn how scientific laws explain natural phenomena and support modern technology.</p></div></div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade subject-pane" id="business-pane" role="tabpanel" tabindex="0">
+            <h1 class="subject-title">Business Studies</h1>
+            <div class="hero-wrap">
+              <div id="businessCarousel" class="carousel slide subject-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active"><img src="./img/business/photo_1_2026-04-01_22-42-34.jpg" alt="Business planning" /></div>
+                  <div class="carousel-item"><img src="./img/business/photo_2_2026-04-01_22-42-34.jpg" alt="Business meeting" /></div>
+                  <div class="carousel-item"><img src="./img/business/photo_3_2026-04-01_22-42-34.jpg" alt="Office work" /></div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#businessCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#businessCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#businessCarousel" data-bs-slide-to="0" class="active"></button>
+                  <button type="button" data-bs-target="#businessCarousel" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#businessCarousel" data-bs-slide-to="2"></button>
+                </div>
+              </div>
+            </div>
+            <h2 class="topics-heading">3 Topics</h2>
+            <div class="row g-3 g-md-4 justify-content-center">
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Enterprise</h5><p>Students discover how businesses begin, identify market needs, and shape ideas into useful products or services. This area encourages initiative, planning, and entrepreneurial thinking.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Marketing</h5><p>Marketing explains how businesses attract and retain customers using product design, pricing, promotion, and distribution. Learners analyse target markets and customer expectations.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Operations &amp; People</h5><p>This section looks at production, human resources, customer service, and organisation. Students understand how effective management supports growth and long-term performance.</p></div></div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade subject-pane" id="economics-pane" role="tabpanel" tabindex="0">
+            <h1 class="subject-title">Economics</h1>
+            <div class="hero-wrap">
+              <div id="economicsCarousel" class="carousel slide subject-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active"><img src="./img/economics/photo_1_2026-04-01_22-43-17.jpg" alt="Economics charts" /></div>
+                  <div class="carousel-item"><img src="./img/economics/photo_2_2026-04-01_22-43-17.jpg" alt="Economics data" /></div>
+                  <div class="carousel-item"><img src="./img/economics/photo_3_2026-04-01_22-43-17.jpg" alt="Financial growth" /></div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#economicsCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#economicsCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#economicsCarousel" data-bs-slide-to="0" class="active"></button>
+                  <button type="button" data-bs-target="#economicsCarousel" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#economicsCarousel" data-bs-slide-to="2"></button>
+                </div>
+              </div>
+            </div>
+            <h2 class="topics-heading">3 Topics</h2>
+            <div class="row g-3 g-md-4 justify-content-center">
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Basic Economic Problem</h5><p>Learners explore scarcity, choice, and opportunity cost. They understand why resources are limited and how individuals, firms, and governments make decisions.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Markets</h5><p>This topic explains demand, supply, pricing, and competition. Students examine how market behaviour shapes outcomes for both consumers and producers.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>National Economy</h5><p>Students study inflation, unemployment, growth, and government policy. The subject builds an understanding of how countries manage performance and development.</p></div></div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade subject-pane" id="accounting-pane" role="tabpanel" tabindex="0">
+            <h1 class="subject-title">Accounting</h1>
+            <div class="hero-wrap">
+              <div id="accountingCarousel" class="carousel slide subject-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active"><img src="./img/accounting/photo_1_2026-04-01_22-43-40.jpg" alt="Accounting books" /></div>
+                  <div class="carousel-item"><img src="./img/accounting/photo_2_2026-04-01_22-43-40.jpg" alt="Accounting analysis" /></div>
+                  <div class="carousel-item"><img src="./img/accounting/photo_3_2026-04-01_22-43-40.jpg" alt="Financial records" /></div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#accountingCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#accountingCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#accountingCarousel" data-bs-slide-to="0" class="active"></button>
+                  <button type="button" data-bs-target="#accountingCarousel" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#accountingCarousel" data-bs-slide-to="2"></button>
+                </div>
+              </div>
+            </div>
+            <h2 class="topics-heading">3 Topics</h2>
+            <div class="row g-3 g-md-4 justify-content-center">
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Bookkeeping</h5><p>Students record transactions using journals, ledgers, and trial balances. This topic builds the foundation for accuracy, consistency, and organised financial records.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Financial Statements</h5><p>Learners prepare income statements and statements of financial position. They understand how businesses report performance and financial health clearly.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Analysis &amp; Evaluation</h5><p>This area develops the ability to interpret accounting data using ratios and comparisons. Students assess profitability, liquidity, and efficiency for better decisions.</p></div></div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade subject-pane" id="ict-pane" role="tabpanel" tabindex="0">
+            <h1 class="subject-title">ICT</h1>
+            <div class="hero-wrap">
+              <div id="ictCarousel" class="carousel slide subject-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active"><img src="./img/ict/photo_1_2026-04-01_22-44-03.jpg" alt="ICT devices" /></div>
+                  <div class="carousel-item"><img src="./img/ict/photo_2_2026-04-01_22-44-03.jpg" alt="Technology learning" /></div>
+                  <div class="carousel-item"><img src="./img/ict/photo_3_2026-04-01_22-44-03.jpg" alt="Digital tools" /></div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#ictCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#ictCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#ictCarousel" data-bs-slide-to="0" class="active"></button>
+                  <button type="button" data-bs-target="#ictCarousel" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#ictCarousel" data-bs-slide-to="2"></button>
+                </div>
+              </div>
+            </div>
+            <h2 class="topics-heading">3 Topics</h2>
+            <div class="row g-3 g-md-4 justify-content-center">
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Digital Systems</h5><p>Students learn how computers process, store, and present information. This topic introduces hardware, software, and the essential role of digital systems in modern study and work.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Networks &amp; Communication</h5><p>ICT networking explains the internet, online communication, security, and file sharing. Learners understand how data travels and how safe digital behaviour protects users.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Applications of ICT</h5><p>This area focuses on spreadsheets, databases, presentations, and word processing. Students apply digital tools to organise information and improve productivity.</p></div></div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade subject-pane" id="cs-pane" role="tabpanel" tabindex="0">
+            <h1 class="subject-title">Computer Science</h1>
+            <div class="hero-wrap">
+              <div id="csCarousel" class="carousel slide subject-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active"><img src="./img/computer/photo_1_2026-04-01_22-44-20.jpg" alt="Programming" /></div>
+                  <div class="carousel-item"><img src="./img/computer/photo_2_2026-04-01_22-44-20.jpg" alt="Coding screen" /></div>
+                  <div class="carousel-item"><img src="./img/computer/photo_3_2026-04-01_22-44-20.jpg" alt="Computer science" /></div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#csCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#csCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#csCarousel" data-bs-slide-to="0" class="active"></button>
+                  <button type="button" data-bs-target="#csCarousel" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#csCarousel" data-bs-slide-to="2"></button>
+                </div>
+              </div>
+            </div>
+            <h2 class="topics-heading">3 Topics</h2>
+            <div class="row g-3 g-md-4 justify-content-center">
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Problem Solving</h5><p>Students break problems into steps, design algorithms, and use pseudocode or flowcharts. This topic builds logical thinking and supports efficient computational solutions.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Programming</h5><p>Programming introduces sequence, selection, iteration, variables, and arrays. Learners write, test, and refine code while developing structured problem-solving habits.</p></div></div>
+              <div class="col-md-6 col-xl-4"><div class="topic-card"><h5>Data Representation</h5><p>This topic explains binary, logic, storage, and computer architecture. Students understand how machines handle data internally and why these ideas matter in computing.</p></div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content auth-modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="modal-header border-0 pb-0 px-4 px-md-4 pt-4">
+          <h4 class="modal-title fw-bold">Account</h4>
+          <button class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body p-4 pt-3">
+          <ul class="nav nav-pills auth-pills mb-4 justify-content-center" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#loginTab" type="button" role="tab">Login</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-bs-toggle="pill" data-bs-target="#registerTab" type="button" role="tab">Register</button>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="loginTab" role="tabpanel">
+              <h5 class="mb-3 fw-bold">Login</h5>
+              <form>
+                <div class="mb-3">
+                  <label class="form-label">Username</label>
+                  <div class="input-group auth-input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input type="text" class="form-control" placeholder="Username">
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Password</label>
+                  <div class="input-group auth-input-group">
+                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                    <input type="password" class="form-control" placeholder="Password">
+                  </div>
+                </div>
+
+                <button class="btn auth-submit-btn w-100 rounded-pill" type="submit">Login</button>
+              </form>
+            </div>
+
+            <div class="tab-pane fade" id="registerTab" role="tabpanel">
+              <h5 class="mb-3 fw-bold">Create Account</h5>
+              <form>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control auth-control" placeholder="First Name">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control auth-control" placeholder="Last Name">
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <input type="email" class="form-control auth-control" placeholder="Email">
+                </div>
+
+                <div class="mb-3">
+                  <input type="text" class="form-control auth-control" placeholder="Username">
+                </div>
+
+                <div class="mb-3">
+                  <input type="password" class="form-control auth-control" placeholder="Password">
+                </div>
+
+                <button class="btn auth-submit-btn w-100 rounded-pill" type="submit">Register</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<section class="about-strip py-5" id="about">
+    <div class="container-fluid px-3 px-lg-4">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="about-card">
+            <h3 class="fw-bold mb-3">About QTech Learning</h3>
+            <p class="mb-0">QTech Learning is built to support IGCSE students with structured subject pages, a modern visual layout, and cleaner navigation. This version focuses on a stronger sidebar, a more polished subject view, and a better small-screen experience using Bootstrap offcanvas.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-card">
+            <h4 class="fw-bold mb-3">What was improved</h4>
+            <ul class="mb-0 ps-3">
+              <li>Professional sidebar styling for desktop and mobile</li>
+              <li>Fully Bootstrap-based offcanvas and tab navigation</li>
+              <li>Cleaned carousel structure with unique IDs only</li>
+              <li>No custom JavaScript used</li>
+              <li>Better spacing, typography, and mobile scaling</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="subjectsSidebar" aria-labelledby="subjectsSidebarLabel">
+    <div class="offcanvas-header">
+      <div class="sidebar-head w-100 mb-0">
+        <div class="sidebar-title" id="subjectsSidebarLabel">IGCSE Subjects</div>
+        <p class="sidebar-subtitle">Educational Tech Products</p>
+      </div>
+      <button type="button" class="btn-close ms-2 mt-1" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+        <div class="sidebar-group-title mt-0">Core Subjects</div>
+        <button class="nav-link active" data-bs-dismiss="offcanvas" data-bs-toggle="pill" data-bs-target="#english-pane" type="button" role="tab">English</button>
+        <button class="nav-link" data-bs-dismiss="offcanvas" data-bs-toggle="pill" data-bs-target="#math-pane" type="button" role="tab">Mathematics</button>
+        <button class="nav-link" data-bs-dismiss="offcanvas" data-bs-toggle="pill" data-bs-target="#science-pane" type="button" role="tab">Science</button>
+
+        <div class="sidebar-group-title">Elective Subjects</div>
+        <button class="nav-link" data-bs-dismiss="offcanvas" data-bs-toggle="pill" data-bs-target="#business-pane" type="button" role="tab">Business Studies</button>
+        <button class="nav-link" data-bs-dismiss="offcanvas" data-bs-toggle="pill" data-bs-target="#economics-pane" type="button" role="tab">Economics</button>
+        <button class="nav-link" data-bs-dismiss="offcanvas" data-bs-toggle="pill" data-bs-target="#accounting-pane" type="button" role="tab">Accounting</button>
+        <button class="nav-link" data-bs-dismiss="offcanvas" data-bs-toggle="pill" data-bs-target="#ict-pane" type="button" role="tab">ICT</button>
+        <button class="nav-link" data-bs-dismiss="offcanvas" data-bs-toggle="pill" data-bs-target="#cs-pane" type="button" role="tab">Computer Science</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
